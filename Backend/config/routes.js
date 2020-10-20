@@ -21,4 +21,7 @@ module.exports = app =>{
         .get(app.api.equipamento.getById)
         .put(app.api.equipamento.save)
         .delete(app.api.equipamento.remove)
+
+    app.route('/hospitais/:id/equipamentos')
+        .get(app.api.equipamento.getByHospital)
 }

@@ -28,10 +28,6 @@ module.exports = app =>{
                 .then(_=> res.status(204).send())
                 .catch(err => res.status(500).send(err))
         }
-        
-
-
-
     }
 
 
@@ -59,6 +55,14 @@ module.exports = app =>{
             .catch(err => res.status(500).send(err))
             
     }
+
+    const getByHospital = async (req,res) => {
+        const equipamentos = await app.db('equipamentos')
+            .where({hospitalId: req.params.id})
+            .then(equipamentos => res.json(equipamentos))
+            .catch(err => res.status(500).send(err))
+
+    }
     
-    return {save, remove, get, getById}
+    return {save, remove, get, getById, getByHospital}
 }
