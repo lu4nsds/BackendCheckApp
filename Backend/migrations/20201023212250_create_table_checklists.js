@@ -1,10 +1,11 @@
 exports.up = function(knex) {
     return knex.schema.createTable('checklists', table => {
         table.increments('id').primary()
-        table.integer('preventivasId').references('id')
-            .inTable('preventivas').notNull()
-        table.string('lista').notNull() 
-    })   
+        table.integer('equipamentoId').references('id').inTable('equipamentos').notNull();
+        table.integer('manutencaoId').references('id')
+            .inTable('manutencoes').notNull()
+            
+    })
 };
 
 exports.down = function(knex) {

@@ -43,46 +43,13 @@ module.exports = app =>{
             res.status(400).send(msg)
         }
     }
-
-    /* const withPath = hospitais => {
-        const getParent = (hospitais, parentId) =>{
-            const parent = hospitais.filter(parent => parent.id === parentId)
-            return parent.length ? parent[0]: null
-        }
-
-        const hospitaisWithPath = hospitais.map(hospital => {
-            let path = hospital.name
-            let parent = getParent(hospitais, hospital.userId)
-            
-            while(parent){
-                path = `${parent.name} > ${path}`
-                parent = getParent(hospitais, parent.userId)        
-            }
-            return {...hospital, path }   
-
-        })  
-
-        hospitaisWithPath.sort((a,b)=> {
-            if(a.path < b.path) return -1
-            if(a.path > b.path) return 1
-            return 0
-        })
-        
-        return hospitaisWithPath
-    } */
     
     const get = (req,res) => {
         app.db('hospitais')
             .then (hospitais => res.json(hospitais))
             .catch(err => res.status(500).send(err))
     }
-    
-    /* const getPaths = (req,res) => {
-        app.db('hospitais')
-            .then (hospitais => res.json(withPath(hospitais)))
-            .catch(err => res.status(500).send(err))
-    } */
-    
+        
     const getById = (req,res) => {
         app.db('hospitais')
             .where({id: req.params.id})

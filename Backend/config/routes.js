@@ -21,7 +21,28 @@ module.exports = app =>{
         .get(app.api.equipamento.getById)
         .put(app.api.equipamento.save)
         .delete(app.api.equipamento.remove)
+    
+    app.route('/manutencoes')
+        .get(app.api.manutencao.get)
+        .post(app.api.manutencao.save)
+    app.route('/manutencoes/:id')
+        .get(app.api.manutencao.getById)
+        .put(app.api.manutencao.save)
+        .delete(app.api.manutencao.remove)
 
+    app.route('/checklist')
+        .get(app.api.checklist.get)
+        .post(app.api.checklist.save)
+    app.route('/checklist/:id')
+        .get(app.api.checklist.getByItens)
+        .put(app.api.checklist.save)
+
+    app.route('/checklist_itens')
+        .get(app.api.checklist_item.get)
+        .post(app.api.checklist_item.save)
+    app.route('/checklist_itens/:id')
+        .put(app.api.checklist_item.save)
+    
     app.route('/hospitais/:id/equipamentos')
         .get(app.api.equipamento.getByHospital)
 }

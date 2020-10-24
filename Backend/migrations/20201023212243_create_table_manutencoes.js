@@ -1,16 +1,18 @@
-
 exports.up = function(knex) {
-    return knex.schema.createTable('preventivas', table => {
+    return knex.schema.createTable('manutencoes', table => {
         table.increments('id').primary()
         table.string('data').notNull()
+        table.string('problema')
+        table.string('solucao')
         table.integer('equipamentoId').references('id')
             .inTable('equipamentos').notNull()
         table.integer('userId').references('id')
             .inTable('users').notNull()
-    })    
+        table.integer('tipo').notNull()
+
+    })
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('preventivas')
+    return knex.schema.dropTable('manutencoes')
 };
-
