@@ -61,8 +61,25 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
 
     }
+    const remove = async (req,res) => {
+        try{
+            existsOrError(req.params.id, 'Código do Usuário não informado')
+            const manutencaoExist = await app.db('manutencoes')
+                .where({ userId: req.params.id })
+            notExistsOrError(manutencaoExist, "Usuário possui manutenções")
+            
+            const rowsDeleted = await app.db('users')
+                .where({id: req.params.id}).del()
+            existsOrError(rowsDeleted, 'Usuário não foi encontrado.') 
+            
+            res.status(204).send()
+            
+        }catch(msg){
+            res.status(400).send(msg)
+        }
+    }
     
     
-    return{ save, get, getById }
+    return{ save, get, getById, remove}
 
 }

@@ -6,7 +6,7 @@ const {existsOrError, notExistsOrError} = app.api.validation
         if (req.params.id) checklist.id = req.params.id
     
         try{
-            existsOrError(checklist.equipamentoId,'Equipamento não informado') 
+            existsOrError(checklist.nome,'Nome não informado') 
             existsOrError(checklist.manutencaoId,'M. Preventiva não informada') 
         } catch (msg){
             return res.status(400).send(msg)
@@ -38,7 +38,17 @@ const {existsOrError, notExistsOrError} = app.api.validation
             .catch(err => res.status(500).send(err))
 
     }
+    const remove = async (req,res) => {
+        try{
+            const rowsDeleted = await app.db('checklists')
+                .where ({id: req.params.id}).del()
+            existsOrError(rowsDeleted, 'Checklist não foi encontrado')    
+            res.status(204).send()
+        } catch(msg){
+            res.status(400).send(msg)
+        }
+    }
 
 
-    return {save, get, getByItens}
+    return {save, get, getByItens, remove}
 }

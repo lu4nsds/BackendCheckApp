@@ -32,8 +32,18 @@ module.exports = app =>{
             .then(itens => res.json(itens))
             .catch(err => res.status(500).send(err))
     }
-
+    
+    const remove = async (req,res) => {
+        try{
+            const rowsDeleted = await app.db('checklist_itens')
+                .where ({id: req.params.id}).del()
+            existsOrError(rowsDeleted, 'Item não foi encontrado')    
+            res.status(204).send()
+        } catch(msg){
+            res.status(400).send(msg)
+        }
+    }
     
 
-    return {save, get}
+    return {save, get, remove}
 }

@@ -1,0 +1,145 @@
+
+[
+    {"USUÁRIOS": "APAGAR"},
+    {
+	"name": "Matheus Vinicius Ribeiro Araujo",
+    "email": "matheusvram@gmail.com",
+    "password": "12345",
+	"confirmPassword": "12345",	
+	"admin": false
+	
+	
+},
+{
+	"name": "Luan Santos de Souza",
+    "email": "luan.s9d7s@gmail.com",
+    "password": "111111",
+	"confirmPassword": "12345",	
+	"admin": false
+	
+	
+},
+
+
+
+
+
+{
+    "HOSPITAIS": "APAGAR"
+},
+{
+	"name": "MEJEC",
+	"endereco": "Rua das verbênias, 65"
+	
+},
+{
+	"name": "HUOL",
+	"endereco": "Alameda das mansoes, 3693"
+	
+},
+
+
+
+
+
+{
+    "EQUIPAMENTOS": "APAGAR"
+},
+{
+    "name": "Ultrassom",
+    "imgUrl": "http://medsonic.com.br/wp-content/uploads/2016/07/GE-Voluson-e61.jpg",
+    "modelo": "MRI UCQI03",
+    "fabricante": "Philips",
+    "sn": "1234966",
+    "hospitalId": 1
+  }, {
+    "name": "Tomografo",
+    "imgUrl": "http://medsonic.com.br/wp-content/uploads/2016/07/GE-Voluson-e61.jpg",
+    "modelo": "Tomografo UCQI03",
+    "fabricante": "Philips",
+    "sn": "258369",
+    "hospitalId": 2
+  },
+  {
+    "name": "MRI",
+    "imgUrl": "http://medsonic.com.br/wp-content/uploads/2016/07/GE-Voluson-e61.jpg",
+    "modelo": "MRI UCQI03",
+    "fabricante": "Philips",
+    "sn": "87965436",
+    "hospitalId": 2
+  },
+
+
+
+
+
+
+
+
+  {
+    "MANUTENÇÕES": "APAGAR"
+},
+  {
+    "id": 1,
+    "data": "23091997",
+    "problema": null,
+    "solucao": null,
+    "equipamentoId": 2,
+    "userId": 1,
+    "tipo": 2
+  },
+  {
+    "id": 2,
+    "data": "23091997",
+    "problema": null,
+    "solucao": null,
+    "equipamentoId": 3,
+    "userId": 2,
+    "tipo": 2
+  },
+  {
+    "id": 3,
+    "data": "23091997",
+    "problema": null,
+    "solucao": null,
+    "equipamentoId": 2,
+    "userId": 2,
+    "tipo": 2
+  },
+
+
+
+
+
+  {
+    "CHECKLISTS": "APAGAR"
+},
+{
+    "id": 1,
+    "nome": "ULTRASSOM",
+    "manutencaoId": 3
+  },
+  {
+    "id": 2,
+    "nome": "Tomografo",
+    "manutencaoId": 2
+  },
+
+
+
+  {
+    "CHECKLISTS ITENS": "APAGAR"
+},
+{
+    "id": 1,
+    "procedimento": "Limpeza de Trackball",
+    "checado": false,
+    "checklistId": 1
+  },
+  {
+    "id": 2,
+    "procedimento": "Limpar aureola do Tomografo",
+    "checado": false,
+    "checklistId": 2
+  }
+]

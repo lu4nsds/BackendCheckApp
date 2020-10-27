@@ -4,7 +4,8 @@ module.exports = app =>{
         .get(app.api.user.get)
     app.route('/users/:id')
         .put(app.api.user.save)
-        .get(app.api.user.getById) 
+        .get(app.api.user.getById)
+        .delete(app.api.user.remove) 
 
     app.route('/hospitais')
         .get(app.api.hospital.get)
@@ -36,13 +37,20 @@ module.exports = app =>{
     app.route('/checklist/:id')
         .get(app.api.checklist.getByItens)
         .put(app.api.checklist.save)
+        .delete(app.api.checklist.remove)
 
+    app.route('/equipamentos/:id/checklist')
+        .get(app.api.equipamento.getChecklist)
+    
     app.route('/checklist_itens')
         .get(app.api.checklist_item.get)
         .post(app.api.checklist_item.save)
     app.route('/checklist_itens/:id')
         .put(app.api.checklist_item.save)
+        .delete(app.api.checklist_item.remove)
     
     app.route('/hospitais/:id/equipamentos')
         .get(app.api.equipamento.getByHospital)
+
+    
 }

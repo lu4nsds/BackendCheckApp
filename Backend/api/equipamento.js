@@ -63,6 +63,20 @@ module.exports = app =>{
             .catch(err => res.status(500).send(err))
 
     }
-    
-    return {save, remove, get, getById, getByHospital}
+    //lh:8080/equipamentos/1/checklist
+    const getChecklist = async(req, res)=>{
+        const equipamento = await app.db('equipamentos')
+            .where({id: req.params.id})
+            .first()
+
+        const checklist = await app.db('checklists')
+            .where({nome: equipamento.name})
+            .first()
+
+        const itens = await app.db('checklist_itens')
+            .where({checklistId: checklist.id})
+            .then(itens => res.json(itens))
+            .catch(err=>res.status(500).send(err))
+    }
+    return {save, remove, get, getById, getByHospital, getChecklist}
 }
