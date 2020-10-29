@@ -3,7 +3,7 @@ exports.up = function(knex) {
         table.increments('id').primary()
         // table.integer('equipamentoId').references('id')
         //     .inTable('equipamentos').notNull();
-        table.string('nome').notNull().unique()
+        table.string('nome').notNull()
         table.integer('manutencaoId').references('id')
             .inTable('manutencoes').notNull()
             

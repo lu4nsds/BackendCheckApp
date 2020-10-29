@@ -7,7 +7,6 @@ module.exports = app =>{
     
         try{
             existsOrError(checklist_item.procedimento,'Procedimento não informado') 
-            existsOrError(checklist_item.checado,'check não informado') 
             existsOrError(checklist_item.checklistId,'checklistID não informado') 
         } catch (msg){
             return res.status(400).send(msg)
