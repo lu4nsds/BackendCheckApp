@@ -22,6 +22,14 @@ module.exports = app =>{
         .get(app.api.equipamento.getById)
         .put(app.api.equipamento.save)
         .delete(app.api.equipamento.remove)
+
+    app.route('/tipo_equip')
+        .get(app.api.tipo_equip.get)
+        .post(app.api.tipo_equip.save)
+    app.route('/tipo_equip/:id')
+        .get(app.api.tipo_equip.getById)
+        .put(app.api.tipo_equip.save)
+        .delete(app.api.tipo_equip.remove)
     
     app.route('/manutencoes')
         .get(app.api.manutencao.get)

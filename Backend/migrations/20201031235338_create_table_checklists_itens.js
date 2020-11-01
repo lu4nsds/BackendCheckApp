@@ -3,7 +3,8 @@ exports.up = function(knex) {
         table.increments('id').primary();
         table.string('procedimento').notNull();
         table.boolean('checado').default(false)
-        table.integer('checklistId').references('id').inTable('checklists').notNull();
+        table.integer('checklistId').references('id')
+            .inTable('checklists').notNull();
     })
 };
 

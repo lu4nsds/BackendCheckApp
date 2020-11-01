@@ -18,6 +18,7 @@ module.exports = app => {
                 existsOrError(manutencao.problema,'Problema da manutencao corretiva não informado' )
                 existsOrError(manutencao.equipamentoId,'Equipamento da manutencao corretiva não informado' )
                 existsOrError(manutencao.userId,'Usuário da manutencao corretiva não informado' )
+                existsOrError(manutencao.tipo,'Tipo da manutenção corretiva não informado' )
             } catch (msg) {
                 return res.status(400).send(msg)
             }
@@ -40,11 +41,12 @@ module.exports = app => {
 
             //MANUTENCAO PREVENTIVA
             try {
-                existsOrError(manutencao.data,'Data da manutencao corretiva não informada' )
+                existsOrError(manutencao.data,'Data da manutencao preventiva não informada' )
                 notExistsOrError(manutencao.solucao,'Não existe solução em manutenção preventiva' )
                 notExistsOrError(manutencao.problema,'Não existe problema em manutenção preventiva' )
-                existsOrError(manutencao.equipamentoId,'Equipamento da manutencao corretiva não informado' )
-                existsOrError(manutencao.userId,'Usuário da manutencao corretiva não informado' )
+                existsOrError(manutencao.equipamentoId,'Equipamento da manutencao preventiva não informado' )
+                existsOrError(manutencao.userId,'Usuário da manutencao preventiva não informado' )
+                existsOrError(manutencao.checklistId, 'checklist da manutencao preventiva não informado')
             } catch (msg) {
                return res.status(400).send(msg)
             }
@@ -74,7 +76,6 @@ module.exports = app => {
     const remove = async(req,res) => {
         try{
             existsOrError(req.params.id, 'Código da Manutenção não informada')
-            
             const rowsDeleted = await app.db('manutencoes')
                 .where({id: req.params.id}).del()
             existsOrError(rowsDeleted, 'Manutenção não foi encontrada.') 

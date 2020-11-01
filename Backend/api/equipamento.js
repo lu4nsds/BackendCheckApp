@@ -7,6 +7,7 @@ module.exports = app =>{
         
         try{
             existsOrError(equipamento.name,'Nome do equipamento não informado' )
+            existsOrError(equipamento.tipo_equipId,'Tipo não informado' )
             existsOrError(equipamento.modelo,'Modelo do equipamento não informado' )
             existsOrError(equipamento.fabricante,'Fabricante do equipamento não informado' )
             existsOrError(equipamento.sn,'Nº Série do equipamento não informado' )
@@ -70,7 +71,7 @@ module.exports = app =>{
             .first()
 
         const checklist = await app.db('checklists')
-            .where({nome: equipamento.name})
+            .where({tipo_equipId: equipamento.tipo_equipId})
             .first()
 
         const itens = await app.db('checklist_itens')

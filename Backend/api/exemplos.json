@@ -3,8 +3,8 @@
     {"USUÁRIOS": "APAGAR"},
     {
 	"name": "Matheus Vinicius Ribeiro Araujo",
-    "email": "matheusvram@gmail.com",
-    "password": "12345",
+  "email": "matheusvram@gmail.com",
+  "password": "12345",
 	"confirmPassword": "12345",	
 	"admin": false
 	
