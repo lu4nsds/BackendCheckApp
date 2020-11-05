@@ -79,7 +79,22 @@ module.exports = app => {
         }
     }
     
+    const checkUser = async (req, res) => {
+        let user = await app.db('users')
+            .where({email: req.query.email})
+            .first()
+            .then(user => user)
+            .catch(err => console.log(err))
+        console.log(user.password);
+        await bcrypt.compare(req.query.password , user.password, (err, result) =>{
+            if (result == true) {
+                console.log("DEU CERTO");
+                res.json(result)
+            }
+        })
+    }
     
-    return{ save, get, getById, remove}
+    
+    return{ save, get, getById, remove, checkUser}
 
 }
