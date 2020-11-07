@@ -8,7 +8,7 @@ module.exports = app =>{
         .delete(app.api.user.remove) 
 
     app.route('/login')
-        .get(app.api.user.checkUser)
+        .post(app.api.user.checkUser)
 
     app.route('/hospitais')
         .get(app.api.hospital.get)

@@ -81,19 +81,21 @@ module.exports = app => {
     
     const checkUser = async (req, res) => {
         let user = await app.db('users')
-            .where({email: req.query.email})
+            .where({email: req.body.email})
             .first()
             .then(user => user)
-            .catch(err => console.log(err))
-        console.log(user.password);
-        await bcrypt.compare(req.query.password , user.password, (err, result) =>{
-            if (result == true) {
-                console.log("DEU CERTO");
-                res.json(result)
-            }
-        })
+            .catch(err => (err))
+        if(user){
+            await bcrypt.compare(req.body.password , user.password, (err, result) =>{
+                if (result == true) {
+                    res.json(result)
+                }
+            })
+        } else{
+            res.json(false)
+        }
+        
     }
-    
     
     return{ save, get, getById, remove, checkUser}
 
