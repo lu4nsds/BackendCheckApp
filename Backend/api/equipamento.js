@@ -71,7 +71,7 @@ module.exports = app =>{
             .first()
 
         const checklist = await app.db('checklists')
-            .where({tipo_equipId: equipamento.tipo_equipId})
+            .where({tipos_equipId: equipamento.tipos_equipId})
             .first()
 
         const itens = await app.db('checklist_itens')

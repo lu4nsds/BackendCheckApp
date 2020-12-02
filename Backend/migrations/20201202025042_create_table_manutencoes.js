@@ -7,7 +7,7 @@ exports.up = function(knex) {
         table.integer('equipamentoId').references('id')
             .inTable('equipamentos').notNull()
         table.integer('checklistId').references('id')
-            .inTable('checklists').notNull() 
+            .inTable('checklists') 
         table.integer('userId').references('id')
             .inTable('users').notNull()
         table.integer('tipo').notNull()
