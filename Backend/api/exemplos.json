@@ -141,5 +141,227 @@
     "procedimento": "Limpar aureola do Tomografo",
     "checado": false,
     "checklistId": 2
+  },
+
+
+
+  {
+    "id": 1,
+    "name": "Matheus Vinicius Ribeiro Araujo",
+    "email": "matheusvram@gmail.com",
+    "admin": false
+  },
+  {
+    "id": 2,
+    "name": "Luan Santos de Souza",
+    "email": "luan.s9d7s@gmail.com",
+    "admin": false
+  },
+  {
+    "id": 3,
+    "name": "Gesio de moura",
+    "email": "gesioiajm@gmail.com",
+    "admin": true
+  },
+
+
+
+
+
+  {
+    "id": 1,
+    "name": "HUOL",
+    "endereco": "Alameda das mansoes, 3693"
+  },
+  {
+    "id": 2,
+    "name": "MEJEC",
+    "endereco": "Rua das verbênias, 65"
+  },
+  {
+    "id": 3,
+    "name": "Hospital Rio Grande",
+    "endereco": "Rua Apodi, 3693"
+  },
+  {
+    "id": 4,
+    "name": "Hospital Monsenhor Walfredo Gurgel",
+    "endereco": "Av. Hermes da Fonseca, Tirol, Natal - RN, 59015-000"
+  },
+  {
+    "id": 5,
+    "name": "Hospital da Aeronáutica de Natal",
+    "endereco": "Av. Alm. Alexandrino de Alencar, 1700 - Tirol, Natal - RN"
+  },
+  {
+    "id": 6,
+    "name": "Promater Hospital e Maternidade",
+    "endereco": " R. São José, 1979 - Lagoa Nova, Natal - RN, 59054-630"
+  },
+  {
+    "id": 7,
+    "name": "Hospital do Coração",
+    "endereco": " R. Cel. Auris Coelho, 235 - Lagoa Nova, Natal - RN, 59075-050"
+  },
+  {
+    "id": 8,
+    "name": "Hospital Unimed Natal",
+    "endereco": "Av. Antônio Basílio, 3598 - Lagoa Nova, Natal - RN, 59056-110"
+  },
+  {
+    "id": 9,
+    "name": "Hospital do Câncer",
+    "endereco": "Nossa Sra. de Nazaré, Natal - RN, 59052-700"
+  },
+  {
+    "id": 10,
+    "name": "LIGA - Centro Avançado de Oncologia",
+    "endereco": "Av. Miguel Castro, 1355 - Dix-Sept Rosado, Natal - RN, 59075-740"
+  },
+  {
+    "id": 11,
+    "name": "Hospital de Olhos do Rio Grande do Norte",
+    "endereco": " R. Mossoró, 615 - Petrópolis, Natal - RN, 59020-090"
+  },
+  {
+    "id": 12,
+    "name": "Hospital Infantil Varela Santiago",
+    "endereco": "Av. Deodoro da Fonseca, 518 - Centro, Natal - RN, 59025-600"
+  },
+  {
+    "id": 13,
+    "name": "Casa de Saúde São Lucas",
+    "endereco": "R. Maxaranguape, 614 - Tirol, Natal - RN, 59020-160"
+  },
+  {
+    "id": 14,
+    "name": "Liga Contra o Câncer",
+    "endereco": "R. Alípio Bandeira, 71a - Quintas, Natal - RN, 59035-055"
+  },
+
+
+
+  {
+    "id": 5,
+    "name": "Ultrassom",
+    "tipos_equipId": 2,
+    "imgUrl": "http://medsonic.com.br/wp-content/uploads/2016/07/GE-Voluson-e61.jpg",
+    "modelo": "Ultrassom UCQI03",
+    "fabricante": "Philips",
+    "sn": "9999999",
+    "hospitalId": 2
+  },
+  {
+    "id": 6,
+    "name": "Tomografo",
+    "tipos_equipId": 4,
+    "imgUrl": "http://medsonic.com.br/wp-content/uploads/2016/07/GE-Voluson-e61.jpg",
+    "modelo": "Ultrassom UCQI03",
+    "fabricante": "Philips",
+    "sn": "7777777",
+    "hospitalId": 2
+  },
+  {
+    "id": 1,
+    "name": "MRI",
+    "tipo_equipId": 3,
+    "imgUrl": "https://lh5.googleusercontent.com/QJru1R0sKAqfjMUKUvMrmPO0-zFUbigCrgLark_WMerHzq4ZUt_TuD_a11-ysJzax__VS4pe58RzNfGh1l8K=w1920-h990",
+    "modelo": "MRI UCQI03",
+    "fabricante": "Philips",
+    "sn": "87965436",
+    "hospitalId": 2
+  },
+  {
+    "id": 14,
+    "name": "Angiógrafo",
+    "tipo_equipId": 2,
+    "imgUrl": "https://cdn.bimedis.com/search/aimage/big/1241907",
+    "modelo": "Angiógrafo UCQI03",
+    "fabricante": "Philips",
+    "sn": "1236987",
+    "hospitalId": 1
+  },
+  {
+    "id": 15,
+    "name": "Arco-Cirúrgico",
+    "tipo_equipId": 2,
+    "imgUrl": "https://www.globalmedvet.com.br/wp-content/uploads/2018/07/globalmedvet-arco-cirurgico-philips-bv-endura.jpg",
+    "modelo": "Arco-Cirúrgico xZ9977",
+    "fabricante": "General Eletric - GE",
+    "sn": "7895255",
+    "hospitalId": 1
+  },
+  {
+    "id": 7,
+    "name": "Tomografo",
+    "tipo_equipId": 4,
+    "imgUrl": "https://images.dotmed.com/images/listingpics/2388770.jpg",
+    "modelo": "Ultrassom UCQI03",
+    "fabricante": "Philips",
+    "sn": "123",
+    "hospitalId": 1
+  },
+  {
+    "id": 11,
+    "name": "Ultrassom",
+    "tipo_equipId": 2,
+    "imgUrl": "https://arraymed.co.in/img/product/epiq7-0.jpg",
+    "modelo": "Ultrassom UCQI03",
+    "fabricante": "Philips",
+    "sn": "12345666",
+    "hospitalId": 1
+  },
+  {
+    "id": 13,
+    "name": "MRI",
+    "tipo_equipId": 3,
+    "imgUrl": "http://medimagesys.com/wp-content/uploads/2014/06/ge-signa-hde-1.5t-6.jpg",
+    "modelo": "MRI UCQI03",
+    "fabricante": "Philips",
+    "sn": "147258",
+    "hospitalId": 1
+  },
+  {
+    "id": 16,
+    "name": "Raio-X",
+    "tipos_equipId": 2,
+    "imgUrl": "http://www.medtecnet.com.br/icontrole/images/produtos/miniMEDTECDET_equipamentos_medicos_c96e1af306.jpg",
+    "modelo": "Raio-X RX666",
+    "fabricante": "Phillips",
+    "sn": "994756",
+    "hospitalId": 1
+  },
+
+
+  {
+    "id": 2,
+    "procedimento": "Limpeza de Trackball",
+    "checado": false,
+    "checklistId": 1
+  },
+  {
+    "id": 3,
+    "procedimento": "Limpeza de bobina de cabeça",
+    "checado": false,
+    "checklistId": 2
+  },
+  {
+    "id": 4,
+    "procedimento": "Limpeza de saida de ar",
+    "checado": false,
+    "checklistId": 3
+  },
+
+
+
+  {
+    "id": 1,
+    "data": "23091997",
+    "problema": null,
+    "solucao": null,
+    "equipamentoId": 1,
+    "checklistId": 2,
+    "userId": 1,
+    "tipo": 2
   }
 ]

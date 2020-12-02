@@ -88,7 +88,10 @@ module.exports = app => {
         if(user){
             await bcrypt.compare(req.body.password , user.password, (err, result) =>{
                 if (result == true) {
-                    res.json(result)
+                    res.json({
+                        result,
+                        user
+                    })
                 }
             })
         } else{

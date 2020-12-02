@@ -7,7 +7,7 @@ module.exports = app =>{
         
         try{
             existsOrError(equipamento.name,'Nome do equipamento não informado' )
-            existsOrError(equipamento.tipo_equipId,'Tipo não informado' )
+            existsOrError(equipamento.tipos_equipId,'Tipo não informado' )
             existsOrError(equipamento.modelo,'Modelo do equipamento não informado' )
             existsOrError(equipamento.fabricante,'Fabricante do equipamento não informado' )
             existsOrError(equipamento.sn,'Nº Série do equipamento não informado' )

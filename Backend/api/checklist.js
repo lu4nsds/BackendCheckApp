@@ -6,7 +6,7 @@ const {existsOrError, notExistsOrError} = app.api.validation
         if (req.params.id) checklist.id = req.params.id
     
         try{
-            existsOrError(checklist.tipo_equipId,'Tipo de equipamento não informado') 
+            existsOrError(checklist.tipos_equipId,'Tipo de equipamento não informado') 
         } catch (msg){
             return res.status(400).send(msg)
         }

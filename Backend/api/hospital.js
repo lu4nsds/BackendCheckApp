@@ -7,6 +7,7 @@ module.exports = app =>{
     
         try{
             existsOrError(hospitais.name,'Nome não informado') 
+            existsOrError(hospitais.endereco,'Endereço não informado')
         } catch (msg){
             return res.status(400).send(msg)
         }

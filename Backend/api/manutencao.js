@@ -57,6 +57,8 @@ module.exports = app => {
                     .then(_ => res.status(204).send())
                     .catch(err => res.status(500).send(err))
             } else {
+
+
                 app.db('manutencoes')
                     .insert(manutencao)
                     .then(_ => res.status(204).send())
@@ -86,5 +88,8 @@ module.exports = app => {
             res.status(400).send(msg)
         }
     }
+
+
+    
     return {save,get, getById, remove}
 }

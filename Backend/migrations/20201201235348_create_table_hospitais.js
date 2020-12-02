@@ -3,6 +3,8 @@ exports.up = function(knex, Promise) {
         table.increments('id').primary()
         table.string('name').notNull().unique()
         table.string('endereco').notNull()    
+        table.string('contato')
+        table.string('telefone')
     })
   };
 

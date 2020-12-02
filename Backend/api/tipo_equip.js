@@ -12,13 +12,13 @@ module.exports = app =>{
         }
 
         if(tipoEquip.id){
-            app.db('tipo_equip')
+            app.db('tipos_equip')
                 .update(tipoEquip)
                 .where({id: tipoEquip.id})
                 .then(_=> res.status(204).send())
                 .catch(err => res.status(500).send(err))
         } else {
-            app.db('tipo_equip')
+            app.db('tipos_equip')
                 .insert(tipoEquip)
                 .then(_=> res.status(204).send())
                 .catch(err => res.status(500).send(err))
@@ -45,13 +45,13 @@ module.exports = app =>{
     }
     
     const get = (req,res) => {
-        app.db('tipo_equip')
+        app.db('tipos_equip')
             .then (tipo_equip => res.json(tipo_equip))
             .catch(err => res.status(500).send(err))
     }
         
     const getById = (req,res) => {
-        app.db('tipo_equip')
+        app.db('tipos_equip')
             .where({id: req.params.id})
             .first()
             .then(tipoEquip => res.json(tipoEquip))

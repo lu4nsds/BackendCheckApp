@@ -11,6 +11,8 @@ exports.up = function(knex) {
         table.integer('userId').references('id')
             .inTable('users').notNull()
         table.integer('tipo').notNull()
+        table.string('observacoes')
+        table.string('horasTrabalhadas')
 
 
     })

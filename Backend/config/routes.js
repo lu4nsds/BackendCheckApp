@@ -26,10 +26,10 @@ module.exports = app =>{
         .put(app.api.equipamento.save)
         .delete(app.api.equipamento.remove)
 
-    app.route('/tipo_equip')
+    app.route('/tipos_equip')
         .get(app.api.tipo_equip.get)
         .post(app.api.tipo_equip.save)
-    app.route('/tipo_equip/:id')
+    app.route('/tipos_equip/:id')
         .get(app.api.tipo_equip.getById)
         .put(app.api.tipo_equip.save)
         .delete(app.api.tipo_equip.remove)
@@ -41,6 +41,17 @@ module.exports = app =>{
         .get(app.api.manutencao.getById)
         .put(app.api.manutencao.save)
         .delete(app.api.manutencao.remove)
+    
+    app.route('/tarefas')
+        .get(app.api.tarefa.get)
+        .post(app.api.tarefa.save)
+    app.route('/tarefas/:id')
+        .get(app.api.tarefa.getById)
+        .put(app.api.tarefa.save)
+        .delete(app.api.tarefa.remove)
+
+    app.route('/manutencoes/:id/tarefas')
+        .get(app.api.tarefa.getByManutencao)
 
     app.route('/checklist')
         .get(app.api.checklist.get)

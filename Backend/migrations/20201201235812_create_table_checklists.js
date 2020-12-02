@@ -1,8 +1,8 @@
 exports.up = function(knex) {
     return knex.schema.createTable('checklists', table => {
         table.increments('id').primary()
-        table.integer('tipo_equipId').references('id')
-            .inTable('tipo_equip').notNull();
+        table.integer('tipos_equipId').references('id')
+            .inTable('tipos_equip').notNull();
     })
 };
 
