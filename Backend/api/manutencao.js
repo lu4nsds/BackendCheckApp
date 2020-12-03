@@ -35,7 +35,6 @@ module.exports = app => {
                     .returning('id')
                     .then(id => {
                         res.json(id)
-                        res.status(204).send()
                     })
                     .catch(err => res.status(500).send(err))
             }
@@ -61,11 +60,12 @@ module.exports = app => {
                     .then(_ => res.status(204).send())
                     .catch(err => res.status(500).send(err))
             } else {
-
-
                 app.db('manutencoes')
                     .insert(manutencao)
-                    .then(_ => res.status(204).send())
+                    .returning('id')
+                    .then(id => {
+                        res.json(id)
+                    })
                     .catch(err => res.status(500).send(err))
             }
         }

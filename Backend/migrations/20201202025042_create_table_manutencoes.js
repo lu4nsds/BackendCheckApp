@@ -12,7 +12,7 @@ exports.up = function(knex) {
             .inTable('users').notNull()
         table.integer('tipo').notNull()
         table.string('observacoes')
-        table.string('horasTrabalhadas')
+        table.string('horasTrabalhadas') //MUDAR PARA HORAS TOTAIS
 
 
     })
