@@ -32,7 +32,11 @@ module.exports = app => {
             } else {
                 app.db('manutencoes')
                     .insert(manutencao)
-                    .then(_ => res.status(204).send())
+                    .returning('id')
+                    .then(id => {
+                        res.json(id)
+                        res.status(204).send()
+                    })
                     .catch(err => res.status(500).send(err))
             }
 
@@ -78,8 +82,14 @@ module.exports = app => {
     const remove = async(req,res) => {
         try{
             existsOrError(req.params.id, 'Código da Manutenção não informada')
+
+            await app.db('tarefas')
+                .where({manutencaoId: req.params.id})
+                .del()
+
             const rowsDeleted = await app.db('manutencoes')
-                .where({id: req.params.id}).del()
+                .where({id: req.params.id})
+                .del()
             existsOrError(rowsDeleted, 'Manutenção não foi encontrada.') 
             
             res.status(204).send()
