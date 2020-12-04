@@ -63,7 +63,18 @@ module.exports = app =>{
 
     app.route('/equipamentos/:id/checklist')
         .get(app.api.equipamento.getChecklist)
-    
+
+    app.route('/itens_status')
+        .get(app.api.item_status.get)
+        .post(app.api.item_status.save)
+    app.route('/itens_status/:id')
+        .get(app.api.item_status.getById)
+        .put(app.api.item_status.save)
+        .delete(app.api.item_status.remove)
+        
+    app.route('/manutencoes/:id/itens_status')
+        .get(app.api.item_status.getByManutencaoId)
+
     app.route('/checklist_itens')
         .get(app.api.checklist_item.get)
         .post(app.api.checklist_item.save)

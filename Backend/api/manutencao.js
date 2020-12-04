@@ -87,6 +87,10 @@ module.exports = app => {
                 .where({manutencaoId: req.params.id})
                 .del()
 
+            await app.db('itens_status')
+                .where({manutencaoId: req.params.id})
+                .del()
+
             const rowsDeleted = await app.db('manutencoes')
                 .where({id: req.params.id})
                 .del()
