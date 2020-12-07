@@ -70,6 +70,7 @@ module.exports = app => {
             }
         }
     }
+
     const getById = (req, res) => {
         app.db('manutencoes')
             .where({ id: req.params.id })
@@ -78,6 +79,15 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
 
     }
+
+    const getByEquipId = (req, res) => {
+        app.db('manutencoes')
+            .where({ equipamentoId: req.params.id })
+            .then(manutencoes => res.json(manutencoes))
+            .catch(err => res.status(500).send(err))
+
+    }
+
 
     const remove = async(req,res) => {
         try{
@@ -105,5 +115,5 @@ module.exports = app => {
 
 
     
-    return {save,get, getById, remove}
+    return {save,get, getById, getByEquipId , remove}
 }

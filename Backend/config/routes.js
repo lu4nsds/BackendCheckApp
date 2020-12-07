@@ -74,6 +74,9 @@ module.exports = app =>{
         
     app.route('/manutencoes/:id/itens_status')
         .get(app.api.item_status.getByManutencaoId)
+    
+    app.route('/equipamentos/:id/manutencoes')
+        .get(app.api.manutencao.getByEquipId)    
 
     app.route('/checklist_itens')
         .get(app.api.checklist_item.get)
