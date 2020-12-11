@@ -30,10 +30,10 @@ module.exports = app =>{
             existsOrError(req.params.id, 'Código do Tipo não informado')
 
             const equipamentosExist = await app.db('equipamentos')
-                .where ({ tipo_equipId: req.params.id })
+                .where ({ tipos_equipId: req.params.id })
             notExistsOrError(equipamentosExist, "Tipo de equipamento possui equipamentos")
             
-            const rowsDeleted = await app.db('tipo_equip')
+            const rowsDeleted = await app.db('tipos_equip')
                 .where({id: req.params.id}).del()
             existsOrError(rowsDeleted, 'Tipo não foi encontrado.') 
             

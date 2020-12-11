@@ -15,6 +15,7 @@ module.exports = app => {
             try{
                 existsOrError(manutencao.data,'Data da manutencao corretiva não informada' )
                 existsOrError(manutencao.solucao,'Solucao da manutencao corretiva não informada' )
+                existsOrError(manutencao.situacao,'Situação da manutencao corretiva não informada' )
                 existsOrError(manutencao.problema,'Problema da manutencao corretiva não informado' )
                 existsOrError(manutencao.equipamentoId,'Equipamento da manutencao corretiva não informado' )
                 existsOrError(manutencao.userId,'Usuário da manutencao corretiva não informado' )
@@ -45,6 +46,7 @@ module.exports = app => {
             //MANUTENCAO PREVENTIVA
             try {
                 existsOrError(manutencao.data,'Data da manutencao preventiva não informada' )
+                existsOrError(manutencao.situacao,'Situação da manutencao preventiva não informada' )
                 notExistsOrError(manutencao.solucao,'Não existe solução em manutenção preventiva' )
                 notExistsOrError(manutencao.problema,'Não existe problema em manutenção preventiva' )
                 existsOrError(manutencao.equipamentoId,'Equipamento da manutencao preventiva não informado' )
