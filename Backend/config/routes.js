@@ -6,6 +6,15 @@ module.exports = app =>{
         .put(app.api.user.save)
         .get(app.api.user.getById)
         .delete(app.api.user.remove) 
+    
+    app.route('/users/:id/manutencoes/')
+        .get(app.api.manutencao.getByUserId)
+
+    app.route('/users/:id/manutencoes/abertas')
+        .get(app.api.manutencao.getAbertaByUserId)
+
+    app.route('/users/:id/manutencoes/concluidas')
+        .get(app.api.manutencao.getConcluidaByUserId)    
 
     app.route('/login')
         .post(app.api.user.checkUser)
@@ -18,6 +27,9 @@ module.exports = app =>{
         .put(app.api.hospital.save)
         .delete(app.api.hospital.remove)
     
+    app.route('/hospitais/:id/equipamentos')
+        .get(app.api.equipamento.getByHospital)    
+    
     app.route('/equipamentos')
         .get(app.api.equipamento.get)
         .post(app.api.equipamento.save)
@@ -25,6 +37,12 @@ module.exports = app =>{
         .get(app.api.equipamento.getById)
         .put(app.api.equipamento.save)
         .delete(app.api.equipamento.remove)
+
+    app.route('/equipamentos/:id/checklist')
+        .get(app.api.equipamento.getChecklist)    
+    
+    app.route('/equipamentos/:id/manutencoes')
+        .get(app.api.manutencao.getByEquipId)       
 
     app.route('/tipos_equip')
         .get(app.api.tipo_equip.get)
@@ -42,6 +60,12 @@ module.exports = app =>{
         .put(app.api.manutencao.save)
         .delete(app.api.manutencao.remove)
     
+    app.route('/manutencoes/:id/tarefas')
+        .get(app.api.tarefa.getByManutencao)
+    
+    app.route('/manutencoes/:id/itens_status')
+        .get(app.api.item_status.getByManutencaoId)       
+
     app.route('/tarefas')
         .get(app.api.tarefa.get)
         .post(app.api.tarefa.save)
@@ -50,8 +74,6 @@ module.exports = app =>{
         .put(app.api.tarefa.save)
         .delete(app.api.tarefa.remove)
 
-    app.route('/manutencoes/:id/tarefas')
-        .get(app.api.tarefa.getByManutencao)
 
     app.route('/checklist')
         .get(app.api.checklist.get)
@@ -61,8 +83,7 @@ module.exports = app =>{
         .put(app.api.checklist.save)
         .delete(app.api.checklist.remove)
 
-    app.route('/equipamentos/:id/checklist')
-        .get(app.api.equipamento.getChecklist)
+
 
     app.route('/itens_status')
         .get(app.api.item_status.get)
@@ -70,13 +91,9 @@ module.exports = app =>{
     app.route('/itens_status/:id')
         .get(app.api.item_status.getById)
         .put(app.api.item_status.save)
-        .delete(app.api.item_status.remove)
-        
-    app.route('/manutencoes/:id/itens_status')
-        .get(app.api.item_status.getByManutencaoId)
-    
-    app.route('/equipamentos/:id/manutencoes')
-        .get(app.api.manutencao.getByEquipId)    
+        .delete(app.api.item_status.remove)       
+ 
+
 
     app.route('/checklist_itens')
         .get(app.api.checklist_item.get)
@@ -85,8 +102,6 @@ module.exports = app =>{
         .put(app.api.checklist_item.save)
         .delete(app.api.checklist_item.remove)
     
-    app.route('/hospitais/:id/equipamentos')
-        .get(app.api.equipamento.getByHospital)
 
     
 }

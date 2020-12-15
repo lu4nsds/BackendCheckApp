@@ -81,6 +81,34 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
 
     }
+    const getByUserId = (req, res) => {
+        app.db('manutencoes')
+            .where({
+                userId: req.params.id,
+            })
+            .then(manutencoes => res.json(manutencoes))
+            .catch(err => res.status(500).send(err))
+    }
+    const getAbertaByUserId = (req, res) => {
+        app.db('manutencoes')
+            .where({
+                userId: req.params.id,
+            })
+            .whereNot({
+                situacao: 'Concluída',
+            })
+            .then(manutencoes => res.json(manutencoes))
+            .catch(err => res.status(500).send(err))
+    }
+    const getConcluidaByUserId = (req, res) => {
+        app.db('manutencoes')
+            .where({
+                userId: req.params.id,
+                situacao: 'Concluída',
+            })
+            .then(manutencoes => res.json(manutencoes))
+            .catch(err => res.status(500).send(err))
+    }
 
     const getByEquipId = (req, res) => {
         app.db('manutencoes')
@@ -117,5 +145,5 @@ module.exports = app => {
 
 
     
-    return {save,get, getById, getByEquipId , remove}
+    return {save,get, getById, getByEquipId, getByUserId, getConcluidaByUserId, getAbertaByUserId, remove}
 }
