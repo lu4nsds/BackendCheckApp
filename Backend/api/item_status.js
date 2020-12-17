@@ -9,6 +9,7 @@ module.exports = app =>{
             existsOrError(item_status.procedimento,'Procedimento não informado') 
             existsOrError(item_status.manutencaoId,'manutencaoId não informado') 
         } catch (msg){
+            console.log('Entrou no 400')
             return res.status(400).send(msg)
         }
 
