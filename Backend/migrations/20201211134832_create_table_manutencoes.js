@@ -8,6 +8,8 @@ exports.up = function(knex) {
             .inTable('equipamentos').notNull()
         table.integer('checklistId').references('id')
             .inTable('checklists') 
+        table.integer('hospitalId').references('id')
+            .inTable('hospitais').notNull()
         table.integer('userId').references('id')
             .inTable('users').notNull()
         table.integer('tipo').notNull()

@@ -1,10 +1,12 @@
 module.exports = app => {
     const { existsOrError, notExistsOrError } = app.api.validation
+    
     const get = (req, res) =>{
         app.db('manutencoes')
             .then(manutencoes => res.json(manutencoes))
             .catch(err => res.status(500).send(err))
     }
+
     const save = (req, res) =>{
         const manutencao = {...req.body}
         //localhost:8080/manutencoes/1
@@ -18,6 +20,7 @@ module.exports = app => {
                 existsOrError(manutencao.situacao,'Situação da manutencao corretiva não informada' )
                 existsOrError(manutencao.problema,'Problema da manutencao corretiva não informado' )
                 existsOrError(manutencao.equipamentoId,'Equipamento da manutencao corretiva não informado' )
+                existsOrError(manutencao.hospitalId,'Hospital da manutencao Corretiva não informado' )
                 existsOrError(manutencao.userId,'Usuário da manutencao corretiva não informado' )
                 existsOrError(manutencao.tipo,'Tipo da manutenção corretiva não informado' )
             } catch (msg) {
@@ -50,6 +53,7 @@ module.exports = app => {
                 notExistsOrError(manutencao.solucao,'Não existe solução em manutenção preventiva' )
                 notExistsOrError(manutencao.problema,'Não existe problema em manutenção preventiva' )
                 existsOrError(manutencao.equipamentoId,'Equipamento da manutencao preventiva não informado' )
+                existsOrError(manutencao.hospitalId,'Hospital da manutencao preventiva não informado' )
                 existsOrError(manutencao.userId,'Usuário da manutencao preventiva não informado' )
                 existsOrError(manutencao.checklistId, 'checklist da manutencao preventiva não informado')
             } catch (msg) {
@@ -110,6 +114,35 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
+    const getAbertaByHospitalId = (req, res) => {
+        app.db('manutencoes')
+            .where({
+                hospitalId: req.params.id,
+            })
+            .whereNot({
+                situacao: 'Concluída',
+            })
+            .then(manutencoes => res.json(manutencoes))
+            .catch(err => res.status(500).send(err))
+    }
+    const getConcluidaByHospitalId = (req, res) => {
+        app.db('manutencoes')
+            .where({
+                hospitalId: req.params.id,
+                situacao: 'Concluída',
+            })
+            .then(manutencoes => res.json(manutencoes))
+            .catch(err => res.status(500).send(err))
+    }
+    const getByHospitalId = (req, res) => {
+        app.db('manutencoes')
+            .where({ hospitalId: req.params.id })
+            .then(manutencoes => res.json(manutencoes))
+            .catch(err => res.status(500).send(err))
+
+    }
+
+
     const getByEquipId = (req, res) => {
         app.db('manutencoes')
             .where({ equipamentoId: req.params.id })
@@ -117,6 +150,7 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
 
     }
+    
 
 
     const remove = async(req,res) => {
@@ -145,5 +179,17 @@ module.exports = app => {
 
 
     
-    return {save,get, getById, getByEquipId, getByUserId, getConcluidaByUserId, getAbertaByUserId, remove}
+    return {
+        save,
+        get,
+        getById,
+        getByEquipId,
+        getByUserId,
+        getAbertaByUserId,
+        getConcluidaByUserId,
+        getByHospitalId,
+        getConcluidaByHospitalId,
+        getAbertaByHospitalId,
+        remove
+    }
 }

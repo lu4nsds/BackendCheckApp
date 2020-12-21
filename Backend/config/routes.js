@@ -28,7 +28,16 @@ module.exports = app =>{
         .delete(app.api.hospital.remove)
     
     app.route('/hospitais/:id/equipamentos')
-        .get(app.api.equipamento.getByHospital)    
+        .get(app.api.equipamento.getByHospital)
+
+    app.route('/hospitais/:id/manutencoes')
+        .get(app.api.manutencao.getByHospitalId)    
+    
+    app.route('/hospitais/:id/manutencoes/abertas')
+        .get(app.api.manutencao.getAbertaByHospitalId)
+
+    app.route('/hospitais/:id/manutencoes/concluidas')
+        .get(app.api.manutencao.getConcluidaByHospitalId)
     
     app.route('/equipamentos')
         .get(app.api.equipamento.get)
