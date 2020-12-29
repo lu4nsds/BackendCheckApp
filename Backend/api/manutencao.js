@@ -159,8 +159,6 @@ module.exports = app => {
     const getByEquipId = (req, res) => {
         app.db('manutencoes')
             .where({ equipamentoId: req.params.id })
-            .join("equipamentos", "equipamentos.id", "=", "manutencoes.equipamentoId")
-            .select("equipamentos.*", "manutencoes.*")
             .then(manutencoes => res.json(manutencoes))
             .catch(err => res.status(500).send(err))
 
