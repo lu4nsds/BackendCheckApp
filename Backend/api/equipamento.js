@@ -57,6 +57,22 @@ module.exports = app =>{
             
     }
 
+    const getByManutAbertaId = async (req, res) => {
+        let abertas = await app.db('manutencoes')
+            .where({
+                hospitalId: req.params.id,
+            })
+            .whereNot({
+                situacao: 'Concluída',
+            })
+            .then(aberta => aberta.equipamentoId)
+            .catch(err => res.status(500).send(err))
+
+
+        console.log(equips)
+
+    }
+    
     const getByHospital = async (req,res) => {
         const equipamentos = await app.db('equipamentos')
             .where({hospitalId: req.params.id})
@@ -79,5 +95,5 @@ module.exports = app =>{
             .then(itens => res.json(itens))
             .catch(err=>res.status(500).send(err))
     }
-    return {save, remove, get, getById, getByHospital, getChecklist}
+    return {save, remove, get, getById, getByHospital, getChecklist, getByManutAbertaId}
 }

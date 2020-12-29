@@ -38,6 +38,9 @@ module.exports = app =>{
 
     app.route('/hospitais/:id/manutencoes/concluidas')
         .get(app.api.manutencao.getConcluidaByHospitalId)
+
+    app.route('/hospitais/:id/manutencoes/abertas/equipamentos')
+        .get(app.api.equipamento.getByManutAbertaId)
     
     app.route('/equipamentos')
         .get(app.api.equipamento.get)

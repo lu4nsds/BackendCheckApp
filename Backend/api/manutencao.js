@@ -114,17 +114,30 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
-    const getAbertaByHospitalId = (req, res) => {
-        app.db('manutencoes')
-            .where({
-                hospitalId: req.params.id,
-            })
-            .whereNot({
-                situacao: 'Concluída',
-            })
-            .then(manutencoes => res.json(manutencoes))
-            .catch(err => res.status(500).send(err))
+    const getAbertaByHospitalId = async (req, res, next) => {
+        try{
+
+            let abertas = await app.db('manutencoes')
+                .whereNot({
+                    situacao: 'Concluída',
+                })
+                .where({
+                    'manutencoes.hospitalId': req.params.id,
+                })
+                .join("equipamentos", "equipamentos.id", "=", "manutencoes.equipamentoId")
+                .select("equipamentos.*", "manutencoes.*")
+                
+                
+
+            const results = await abertas
+            return res.json(results)    
+
+        } catch(error){
+            next(error)
+        }
     }
+
+    
     const getConcluidaByHospitalId = (req, res) => {
         app.db('manutencoes')
             .where({
@@ -146,6 +159,8 @@ module.exports = app => {
     const getByEquipId = (req, res) => {
         app.db('manutencoes')
             .where({ equipamentoId: req.params.id })
+            .join("equipamentos", "equipamentos.id", "=", "manutencoes.equipamentoId")
+            .select("equipamentos.*", "manutencoes.*")
             .then(manutencoes => res.json(manutencoes))
             .catch(err => res.status(500).send(err))
 
